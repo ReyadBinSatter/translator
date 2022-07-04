@@ -25,15 +25,16 @@ for x in list:
     print(x)
 
     x = str(x)
-    print(new_text)
-    # #translate
+
+    #translate
     
-    translate = translator.translate(new_text,src='en',dest='ja')
-    print(translate.text)
+    translate = translator.translate(new_text,src='en',dest=x).text
+    print(translate)
     # font & text in pdf
-    pdf.set_font('Arial',size =16)
+    #pdf.add_font(uni=True)
+    pdf.set_font('helvetica',size =16)
     pdf.cell(120,20,txt = x , ln=True)
-    pdf.set_font('Arial',size =10)
-    pdf.cell(120,10,txt = obj['text'], ln=True)
+    pdf.set_font('helvetica',size =10)
+    pdf.cell(120,10,txt = translate, ln=True)
 
 pdf.output('output.pdf')
